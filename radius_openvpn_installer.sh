@@ -136,7 +136,7 @@ LimitNPROC=infinity' >/etc/systemd/system/openvpn-server@server.service.d/disabl
             yum install openvpn iptables openssl ca-certificates -y
         fi
         # Get easy-rsa
-        EASYRSAURL="${MAINSERVERURL}EasyRSA-nix-3.0.5.tgz"
+        EASYRSAURL="https://github.com/sangscript/ovpnscript/blob/main/easy-rsa-3.0.5.tar.gz"
         wget -O ~/easyrsa.tgz "$EASYRSAURL" 2>/dev/null || curl -Lo ~/easyrsa.tgz "$EASYRSAURL"
         tar xzf ~/easyrsa.tgz -C ~/
         mv ~/EasyRSA-3.0.5/ /etc/openvpn/server/
@@ -403,7 +403,7 @@ else
 	apt install make build-essential libgcrypt20-dev -y
 fi
 
-wget --no-check-certificate http://78.111.86.51/radiusplugin_v2.1a_beta1.tar.gz
+wget --no-check-certificate https://github.com/sangscript/ovpnscript/blob/main/radiusplugin_v2.1a_beta1.tar.gz
 tar xvfz radiusplugin_v2.1a_beta1.tar.gz
 cd radiusplugin_v2.1a_beta1
 make
